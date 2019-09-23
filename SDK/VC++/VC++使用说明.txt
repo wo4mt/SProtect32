@@ -117,7 +117,7 @@ int main(void)
 	printf("hello, sp2!\n");
 	printf("hello, sp3!\n");
 	
-	SP_CRC_AUTO(1);	// 一旦发现代码内存被修改, 则自动结束进程
+	SP_CRC_AUTO();	// 一旦发现代码内存被修改, 则自动结束进程
 	
 	SP_End();
 	
@@ -165,28 +165,12 @@ int main(void)
 	return 0;
 }
 
-11 检测虚拟机运行环境水印[SP_CHECK_VMAC_AUTO]是一个用来检测你的应用程序是否在虚拟机中运行的水印, 一旦发现运行在虚拟机环境会立即自动结束进程, 使用方法如下:
-int main(void)
-{
-	SP_Begin(1);
-	
-	printf("hello, sp1!\n");
-	printf("hello, sp2!\n");
-	printf("hello, sp3!\n");
-	
-	SP_CHECK_VMAC_AUTO(1);	// 一旦发现运行在虚拟机环境会立即自动结束进程
-	
-	SP_End();
-	
-	return 0;
-}
+11 请多利用 代码加密水印[SP_Begin, SP_End] 跟 防止Dump代码加密水印[SP_AntiDumpCodeBegin, SP_AntiDumpCodeEnd] 的组合
 
-12 请多利用 代码加密水印[SP_Begin, SP_End] 跟 防止Dump代码加密水印[SP_AntiDumpCodeBegin, SP_AntiDumpCodeEnd] 的组合
+12 请注意, MAP文件操作不支持 防止Dump代码加密
 
-13 请注意, MAP文件操作不支持 防止Dump代码加密
+13 请注意, 在同一个pe文件里面, 你不能 SP_ANTIDEBUG 跟 SP_ANTIDEBUG_AUTO 同时使用, 你只能选择其中一种方案, 否则会出现问题. (SP_CRC 跟 SP_CRC_AUTO 也使用相同的规则)
 
-14 请注意, 在同一个pe文件里面, 你不能 SP_ANTIDEBUG 跟 SP_ANTIDEBUG_AUTO 同时使用, 你只能选择其中一种方案, 否则会出现问题. (SP_CRC 跟 SP_CRC_AUTO 也使用相同的规则)
-
-15 更多的使用DEMO请关注WEB站内公告
+14 更多的使用DEMO请关注WEB站内公告
 
 

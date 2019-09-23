@@ -272,44 +272,4 @@
 	__asm jmp dword ptr ds : [flag] \
 	__asm _emit 0x90 \
 
-
-//
-// 检测虚拟机环境水印 检测到异常自动结束进程
-//
-
-#define SP_CHECK_VMAC_AUTO(flag) \
-	__asm _emit 0xEB \
-	__asm _emit 0x24 \
-	__asm _emit 0x53 \
-	__asm _emit 0x79 \
-	__asm _emit 0x73 \
-	__asm _emit 0x56 \
-	__asm _emit 0x4d \
-	__asm _emit 0x50 \
-	__asm _emit 0x72 \
-	__asm _emit 0x6f \
-	__asm _emit 0x74 \
-	__asm _emit 0x65 \
-	__asm _emit 0x63 \
-	__asm _emit 0x74 \
-	__asm _emit 0x20 \
-	__asm _emit 0x43 \
-	__asm _emit 0x68 \
-	__asm _emit 0x65 \
-	__asm _emit 0x63 \
-	__asm _emit 0x6b \
-	__asm _emit 0x56 \
-	__asm _emit 0x4d \
-	__asm _emit 0x61 \
-	__asm _emit 0x63 \
-	__asm _emit 0x41 \
-	__asm _emit 0x75 \
-	__asm _emit 0x74 \
-	__asm _emit 0x6f \
-	__asm _emit 0x90 \
-	__asm _emit 0x90 \
-	__asm jmp dword ptr ds : [flag] \
-	__asm _emit 0x90 \
-
-
 #endif	// __SPROTECT_SDK__
